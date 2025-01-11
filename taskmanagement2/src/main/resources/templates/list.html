@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taks Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #d4fc79, #96e6a1);
+            font-family: 'Arial', sans-serif;
+            color: #444;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            color: #fff !important;
+        }
+
+        .navbar .nav-link {
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+        .container h1 {
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .table {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th {
+            background: linear-gradient(120deg, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        .table tbody tr:hover {
+            background: #eef6ff;
+        }
+
+        .btn {
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+       .btn-primary {
+    background: linear-gradient(to right, #b3d9ff, #e6f7ff); /* Light Blue Gradient */
+    color: #0056b3; /* Darker Blue Text for Visibility */
+    border: none;
+}
+
+.btn-warning {
+    background: linear-gradient(to right, #ffeeba, #fff3cd); /* Light Yellow Gradient */
+    color: #856404; /* Darker Yellow Text for Visibility */
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #ffccd5, #ffe5e9); /* Light Red Gradient */
+    color: #721c24; /* Darker Red Text for Visibility */
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(to right, #d4edda, #f8f9fa); /* Light Green Gradient */
+    color: #155724; /* Darker Green Text for Visibility */
+    border: none;
+}
+
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Task Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link bg-danger rounded-pill px-3 py-2" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4" th:text="'Welcome ' + ${username}"></h1>
+    <div class="table-container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.title}"></td>
+                <td th:text="${task.description}"></td>
+               <td>
+    <a class="btn btn-primary btn-sm me-1" th:href="@{/{id}(id=${task.id})}">
+        <i class="fas fa-eye"></i> View
+    </a>
+    <a class="btn btn-warning btn-sm me-1" th:href="@{/{id}/edit(id=${task.id})}">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+    <form th:action="@{/{id}/delete(id=${task.id})}" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash"></i> Delete
+        </button>
+    </form>
+</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <a class="btn btn-success px-4 py-2" href="/tasks/create">
+            <i class="fas fa-plus"></i> Create New Task
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Task Management. Developed with ❤️ by <a href="#">Kapil Narwani</a>.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

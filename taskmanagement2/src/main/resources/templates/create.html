@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Task</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Page Background */
+    body {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #333;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Header Section */
+    .header-section {
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* Form Container */
+    .form-container {
+      max-width: 500px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    /* Form Controls */
+    .form-control {
+      border: 1px solid #ddd;
+      transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border: none;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #2575fc, #6a11cb);
+    }
+
+    .btn-secondary {
+      background: #ddd;
+      border: none;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn-secondary:hover {
+      transform: scale(1.05);
+      background: #bbb;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+<!-- Header Section -->
+<section class="header-section text-center">
+  <h1>Create Task</h1>
+  <p>Plan your tasks efficiently and get things done!</p>
+</section>
+
+<!-- Form Section -->
+<section class="py-5">
+  <div class="container form-container">
+    <form th:action="@{/}" method="post">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter task title" th:field="*{task.title}" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" name="description" placeholder="Enter task description" rows="4" th:field="*{task.description}" required></textarea>
+      </div>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Create Task</button>
+        <a href="/" class="btn btn-secondary">Back to List</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

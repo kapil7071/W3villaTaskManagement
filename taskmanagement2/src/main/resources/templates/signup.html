@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signup-box {
+            width: 350px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            border: none;
+            transition: transform 0.3s ease, opacity 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            border: none;
+            transition: transform 0.3s ease, opacity 0.3s;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="signup-box">
+    <h2>Signup</h2>
+    <form th:action="@{/signup}" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary px-4">Signup</button>
+            <a href="/signin" class="btn btn-secondary px-4">Login</a>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Get the URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+
+    // Show an alert based on the error type
+    if (error === 'passwordMismatch') {
+        alert('Passwords do not match. Please try again.');
+    } else if (error === 'usernameTaken') {
+        alert('The username is already taken. Please choose another one.');
+    }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
