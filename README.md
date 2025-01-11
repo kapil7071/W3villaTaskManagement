@@ -1,21 +1,21 @@
-Usage
-Sign Up:
+# Usage
+# Sign Up:
 # =======================================
 Go to /signup to create a new user account.
-Log In:
+# Log In:
 # =======================================
 Go to /signin to log in with your credentials.
 Manage Tasks:
 
-After logging in, you can:
+# After logging in, you can:
 View all your tasks on the dashboard.
 Create new tasks.
 Edit or delete existing tasks.
 
 
-API Endpoints
+# API Endpoints Authentication
 # =======================================
-Authentication
+
 Endpoint ->Method	Description
 /signup	->GET	Displays the signup form.
 /signup ->	POST	Handles user registration.
@@ -23,18 +23,24 @@ Endpoint ->Method	Description
 
 Tasks
 
-Endpoint	Method	Description
+# Endpoint	Method	Description
 # =======================================
 /	GET	Displays -> tasks for the logged-in user.
+
 /tasks/create	 -> GET	Displays the task creation form.
+
 /	POST ->	Creates a new task.
+
 /{id} ->	GET	Fetches details of a specific task.
+
 /{id}/edit -> GET	Displays the edit form for a task.
+
 /{id}	POST ->	Updates an existing task.
+
 /{id}/delete ->	POST	Deletes a task.
 
 
-Technologies Used
+# Technologies Used
 # =======================================
 Spring Boot: Framework for building the application
 Spring Security: Authentication and authorization
@@ -44,13 +50,13 @@ Maven: Build and dependency management
 Java 17: Programming language
 
 # Database Configuration
-# =======================================
-# JDBC URL for database connection
+### =======================================
+ JDBC URL for database connection
 spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
-# Database username
+ Database username
 spring.datasource.username=your_username
-# Database password
+ Database password
 spring.datasource.password=your_password
-# Database driver class
+ Database driver class
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
