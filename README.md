@@ -60,11 +60,19 @@ Java 17: Programming language
 # Database Configuration
 
 JDBC URL for database connection
+
 spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+
  Database username
+ 
 spring.datasource.username=your_username
+
  Database password
+ 
 spring.datasource.password=your_password
+
  Database driver class
+ 
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
 
