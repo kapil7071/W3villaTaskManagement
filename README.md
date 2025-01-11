@@ -17,9 +17,13 @@ Edit or delete existing tasks.
 
 
 Endpoint ->Method	Description
+
 /signup	->GET	Displays the signup form.
+
 /signup ->	POST	Handles user registration.
+
 /signin ->	GET	Displays the login form.
+
 
 Tasks
 
