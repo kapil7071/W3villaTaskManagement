@@ -1,9 +1,9 @@
 # Usage
 # Sign Up:
-# =======================================
+
 Go to /signup to create a new user account.
 # Log In:
-# =======================================
+
 Go to /signin to log in with your credentials.
 Manage Tasks:
 
@@ -14,7 +14,7 @@ Edit or delete existing tasks.
 
 
 # API Endpoints Authentication
-# =======================================
+
 
 Endpoint ->Method	Description
 /signup	->GET	Displays the signup form.
@@ -24,7 +24,8 @@ Endpoint ->Method	Description
 Tasks
 
 # Endpoint	Method	Description
-# =======================================
+
+
 /	GET	Displays -> tasks for the logged-in user.
 
 /tasks/create	 -> GET	Displays the task creation form.
@@ -41,7 +42,8 @@ Tasks
 
 
 # Technologies Used
-# =======================================
+
+
 Spring Boot: Framework for building the application
 Spring Security: Authentication and authorization
 Thymeleaf: Templating engine for rendering HTML
@@ -50,8 +52,8 @@ Maven: Build and dependency management
 Java 17: Programming language
 
 # Database Configuration
-### =======================================
- JDBC URL for database connection
+
+JDBC URL for database connection
 spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
  Database username
 spring.datasource.username=your_username
