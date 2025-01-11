@@ -45,11 +45,17 @@ Tasks
 
 
 Spring Boot: Framework for building the application
+
 Spring Security: Authentication and authorization
+
 Thymeleaf: Templating engine for rendering HTML
+
 MySQL: Database for storing user and task data
+
 Maven: Build and dependency management
+
 Java 17: Programming language
+
 
 # Database Configuration
 
